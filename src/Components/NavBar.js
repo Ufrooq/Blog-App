@@ -1,12 +1,14 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../index.css";
 
 const NavBar = () => {
   return (
     <nav className="navbar">
       <div id="logo">
-        <h2>Blogs.com</h2>
+        <Link to="/" style={{ textDecoration: "none", color: "#ff7979" }}>
+          <h2>Blogs.com</h2>
+        </Link>
       </div>
       <div className="links">
         <NavLink className="nav-link" to="/">

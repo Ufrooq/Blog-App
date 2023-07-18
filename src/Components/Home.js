@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import BlogList from "./BlogList";
 import { useFetch } from "./useFetch";
 
@@ -13,9 +12,9 @@ const Home = () => {
       {isError && (
         <lord-icon
           src="https://cdn.lordicon.com/tdrtiskw.json"
-          trigger="hover"
+          trigger="loop"
           colors="primary:#ff7979,secondary:#ff7922"
-          style={{ width: "170px", height: "170px" }}
+          style={{ width: "300px", height: "400px" }}
         ></lord-icon>
       )}
       {isLoading && (
@@ -24,7 +23,7 @@ const Home = () => {
             src="https://cdn.lordicon.com/xjovhxra.json"
             trigger="loop"
             colors="primary:#ff7979"
-            style={{ width: "170px", height: "170px" }}
+            style={{ width: "170px", height: "400px" }}
           ></lord-icon>
           <div
             style={{ color: "#ff7979", textAlign: "center", fontWeight: "600" }}

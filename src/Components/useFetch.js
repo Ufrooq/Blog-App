@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(null);
+  const abortController = new AbortController();
+  let ref = useRef();
+
   const fetchData = async () => {
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, { signal: abortController.signal });
       console.log(response);
       if (!response.ok) {
         setIsError(true);
@@ -18,14 +21,21 @@ export const useFetch = (url) => {
         setIsError(false);
       }
     } catch (error) {
-      setIsError(true);
-      setIsLoading(false);
+      if (error.name === "AbortError") {
+        console.log("Fetc Aborted --->");
+      } else {
+        setIsError(true);
+        setIsLoading(false);
+      }
     }
   };
   useEffect(() => {
     setTimeout(() => {
       fetchData();
-    }, 3000);
+    }, 2000);
+    return () => {
+      abortController.abort();
+    };
   }, [url]);
 
   return { data, isLoading, isError };

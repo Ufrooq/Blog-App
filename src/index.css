@@ -4,7 +4,19 @@ body {
   font-family: "Work Sans", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ff7979;
+  border-radius: 20px;
+}
+
 .App {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,6 +35,14 @@ body {
   align-items: center;
 }
 
+@media screen and (max-width: 500px) {
+  .navbar {
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
 .links {
   text-align: end;
 }
@@ -36,6 +56,7 @@ body {
 .active {
   color: #ff7979;
 }
+
 #logo {
   color: #ff7979;
   text-align: start;
@@ -50,6 +71,7 @@ body {
 }
 lord-icon {
   justify-self: center;
+  margin: auto;
 }
 .Home h1 {
   text-align: center;
@@ -57,10 +79,8 @@ lord-icon {
 }
 .cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: minmax(50px, auto);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   grid-gap: 20px;
-  grid-auto-rows: minmax(50px, auto);
 }
 
 .blog-preview {
@@ -97,7 +117,151 @@ lord-icon {
   cursor: pointer;
 }
 
+.blog-details {
+  margin: auto;
+  width: 60%;
+  margin: auto;
+  padding: 10px;
+}
+.blog-details span {
+  font-weight: bold;
+  color: #6e7580;
+  position: relative;
+}
+
+.blog-details span::before {
+  content: "";
+  background-color: #6e7580;
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  left: -10px;
+  top: 8px;
+}
+.blog-details p {
+  text-align: justify;
+}
+
+.blog-details button {
+  width: 100px;
+  padding: 8px 5px;
+  background-color: #ff7979;
+  border: 1.5px solid #ff7979;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 3px;
+  transition: all 0.3s;
+  color: white;
+}
+
+.blog-details button:hover {
+  background-color: #ee6b6b;
+  border: 1.5px solid #ee6b6b;
+  cursor: pointer;
+}
 .create-blog {
   width: 80%;
   margin: auto;
+  display: grid;
+  grid-template-columns: 60%;
+  grid-template-rows: auto;
+  justify-content: center;
+  justify-items: center;
+}
+
+.create-blog form {
+  width: 60%;
+  display: grid;
+  margin: 10px;
+}
+.create-blog input {
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #9b9d9f;
+  border-radius: 2px;
+  outline: none;
+  box-sizing: border-box;
+  margin: 10px 0px 40px 0px;
+}
+
+.create-blog textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #9b9d9f;
+  box-sizing: border-box;
+  border-radius: 2px;
+  outline: none;
+  margin: 10px 0px 40px 0px;
+}
+
+label {
+  text-align: start;
+  color: #535c68;
+}
+
+.create-blog input:hover {
+  pointer-events: painted;
+}
+
+.create-blog input::placeholder {
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.create-blog button {
+  width: 100px;
+  margin: auto;
+  padding: 8px 5px;
+  background-color: #ff7979;
+  border: 1.5px solid #ff7979;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 3px;
+  transition: all 0.3s;
+  color: white;
+}
+
+.create-blog button:hover {
+  background-color: #ee6b6b;
+  border: 1.5px solid #ee6b6b;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 425px) {
+  .create-blog {
+    width: 100%;
+  }
+}
+.p404 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.imp {
+  color: red;
+  font-size: 2em;
+}
+.web-footer {
+  background-color: #ff7979;
+  margin-top: 30px;
+}
+.footer-content {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 30% 30%;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.footer-content p {
+  text-align: end;
+}
+
+@media screen and (max-width: 500px) {
+  .footer-content {
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
